@@ -10,8 +10,6 @@ import ProtectedRoute from "./ProtectedRoute";
 import SeekerDashboard from "../pages/seeker/SeekerDashboard";
 import CompanyDashboard from "../pages/company/CompanyDashboard";
 
-// 1. Import your new notifications component
-import Notifications from "../components/notifications"; 
 
 function AppRouter() {
   return (
@@ -19,7 +17,7 @@ function AppRouter() {
       <Navbar />
       
       {/* 2. Add Notifications here so it works on EVERY page */}
-      <Notifications />
+      
 
       <Routes>
         <Route path="/" element={<Home />} />
