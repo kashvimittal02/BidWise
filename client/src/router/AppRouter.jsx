@@ -9,7 +9,6 @@ import Navbar from "../components/Navbar";
 import ProtectedRoute from "./ProtectedRoute";
 import SeekerDashboard from "../pages/seeker/SeekerDashboard";
 import CompanyDashboard from "../pages/company/CompanyDashboard";
-import AiTestPage from '../pages/aitestpage'; 
 
 // 1. Import your new notifications component
 import Notifications from "../components/notifications"; 
@@ -28,8 +27,6 @@ function AppRouter() {
         <Route path="/post-request" element={<PostService />} />
         <Route path="/bids" element={<Bids />} />
         
-        <Route path="/ai-test" element={<AiTestPage />} />
-
         <Route
           path="/profile"
           element={
