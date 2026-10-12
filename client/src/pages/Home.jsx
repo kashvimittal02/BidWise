@@ -31,7 +31,7 @@ export default function Home() {
         {/* Call to action buttons */}
         <div className="mt-10 flex justify-center gap-6">
           <a
-            href="/services"
+            href="/bids"
             className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 
                        text-white font-semibold rounded-xl shadow-lg
                        transition-transform transform hover:-translate-y-1"
