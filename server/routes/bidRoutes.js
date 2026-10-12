@@ -4,7 +4,6 @@ const Bid = require("../models/Bid");
 const ServiceRequest = require("../models/ServiceRequest");
 const Notification = require("../models/Notification");
 const auth = require("../middleware/auth");
-const aiController = require("../controllers/aiController");
 
 // Company places bid for a service
 router.post("/:serviceId", auth, async (req, res) => {
@@ -33,14 +32,7 @@ router.post("/:serviceId", auth, async (req, res) => {
     await Notification.create(notificationData);
 
     // 2. ⚡ Emit real-time notification via Socket.io
-    const io = req.app.get("io"); // Get the socket instance we set in server.js
-    if (io) {
-      io.emit("new_bid_notification", {
-        ...notificationData,
-        price: amount,
-        serviceTitle: service.title
-      });
-    }
+    
 
     res.json({ message: "Bid placed", bid });
   } catch (err) {
@@ -84,10 +76,7 @@ router.post("/:bidId/accept", auth, async (req, res) => {
     await Notification.create(notificationData);
 
     // 2. ⚡ Emit real-time "Bid Accepted" notification
-    const io = req.app.get("io");
-    if (io) {
-      io.emit("bid_accepted_notification", notificationData);
-    }
+    
 
     res.json({ message: "Bid accepted", bid });
   } catch (err) {
@@ -96,7 +85,5 @@ router.post("/:bidId/accept", auth, async (req, res) => {
   }
 });
 
-// AI ranking route
-router.get("/service/:requestId/ai-ranked", auth, aiController.getRankedBids);
 
 module.exports = router;
