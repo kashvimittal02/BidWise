@@ -31,7 +31,6 @@ router.post("/:serviceId", auth, async (req, res) => {
     };
     await Notification.create(notificationData);
 
-    // 2. ⚡ Emit real-time notification via Socket.io
     
 
     res.json({ message: "Bid placed", bid });
@@ -75,7 +74,6 @@ router.post("/:bidId/accept", auth, async (req, res) => {
     };
     await Notification.create(notificationData);
 
-    // 2. ⚡ Emit real-time "Bid Accepted" notification
     
 
     res.json({ message: "Bid accepted", bid });
