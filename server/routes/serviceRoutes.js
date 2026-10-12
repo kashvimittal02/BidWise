@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const ServiceRequest = require("../models/ServiceRequest");
 const auth = require("../middleware/auth");
-aiController = require("../controllers/aiController");
 // Create a new service request (seeker)
 router.post("/", auth, async (req, res) => {
   try {
@@ -48,5 +47,4 @@ router.get("/:id", auth, async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-router.get("/:requestId/ai-matches", auth, aiController.getCompanyMatches);
 module.exports = router;
