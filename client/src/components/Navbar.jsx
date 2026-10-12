@@ -19,7 +19,6 @@ export default function Navbar() {
           {/* Show Post Service only for Seekers */}
           <Link to="/post-service" className="text-gray-600 hover:text-indigo-600 transition-colors">Post Service</Link>
           
-          <Link to="/ai-test" className="text-indigo-600 font-bold hover:text-indigo-700">AI Rankings</Link>
           <Link to="/profile" className="text-gray-600 hover:text-indigo-600 transition-colors">Profile</Link>
         </div>
 
